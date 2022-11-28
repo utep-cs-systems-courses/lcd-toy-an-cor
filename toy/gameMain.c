@@ -11,7 +11,6 @@ void song1();
 void song2();
 void song3();
 void song4();
-void song5();
 void start_screen();
 void choose_song();
 unsigned short rand = 0;
@@ -40,7 +39,7 @@ void main()
 //square size
 static unsigned int size = screenWidth/3;
 
-//buzzer sounds for kick, right, left
+//buzzer sounds for music notes
 static short a5S = 880;
 static short b5S = 988;
 static short c6S = 1047;
@@ -51,10 +50,6 @@ static short g6S = 1568;
 static short a6S = 1760;
 static short b6S = 1976;
 static short c7S = 2093;
-
-static short kickS = 700;
-static short rightS = 1000;
-static short leftS = 1300;
 
 //holds which switch was last pressed
 static unsigned char sw1pressed = 0;
@@ -272,7 +267,7 @@ void song3(){
     fillRectangle(screenWidth*2/3,0,size,size,current_color);
     fillRectangle(screenWidth*2/3,screenHeight/3,size,size,current_color);
     fillRectangle(screenWidth*2/3,screenHeight*2/3,size,size,current_color);
-    buzzer_set_period(rightS);
+    buzzer_set_period(a5S);
     state = 1;
     break;
   case 1://left
@@ -285,7 +280,7 @@ void song3(){
     fillRectangle(0,0,size,size,current_color);
     fillRectangle(0,screenHeight/3,size,size,current_color);
     fillRectangle(0,screenHeight*2/3,size,size,current_color);
-    buzzer_set_period(leftS);
+    buzzer_set_period(a6S);
     rand +=7;
     state = 0;
     break;
